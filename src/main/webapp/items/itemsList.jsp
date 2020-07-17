@@ -20,7 +20,7 @@
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button" onclick="queryByName('${pageContext.request.contextPath}')">查找</button>
                     </span>
-				<input type="text" class="form-control" placeholder="Search by name" id="searchName" value="${vo.query}">
+				<input type="text" class="form-control" placeholder="Search by name" id="searchName" value="${pageVO.query}">
 			</div>
 		</div>
 		<div class="col-md-4 col-lg-4">
@@ -40,7 +40,7 @@
 				<th style="text-align:center">商品图片</th>
 				<th style="text-align:center">操作</th>
 			</tr>
-			<c:forEach items="${itemsList}" var="items">
+			<c:forEach items="${pageVO.itemsList}" var="items">
 				<tr class="data" align="center">
 					<td class="datachoose"><input type="checkbox" class="single"></td>
 					<td class="id">${items.id}</td>
@@ -54,7 +54,7 @@
 						</c:if>
 					</td>
 					<td>
-						<a href="javascript:void(0)" class="btn btn-info" onclick="">修改</a>|
+						<a href="javascript:pageVOid(0)" class="btn btn-info" onclick="">修改</a>|
 						<a href="" class="btn btn-danger">删除</a>
 					</td>
 				</tr>
@@ -64,15 +64,15 @@
 					<input class="btn btn-success" type="button" value="首页"
 						   onclick="firstPage('${pageContext.request.contextPath}')"/>&nbsp;&nbsp;
 					<input class="btn btn-success" type="button" id="pre" value="上一页"
-						   onclick="prePage('${pageContext.request.contextPath}',${vo.myPages})"/>&nbsp;&nbsp;
+						   onclick="prePage('${pageContext.request.contextPath}',${pageVO.myPages})"/>&nbsp;&nbsp;
 					<!-- 当前页 -->
-					<input type="text" id="pageNow" value="${vo.pageNow}" style="text-align:center"/>&nbsp;&nbsp;
+					<input type="text" id="pageNow" value="${pageVO.pageNow}" style="text-align:center"/>&nbsp;&nbsp;
 					<input class="btn btn-success" type="button" value="跳转"
-						   onclick="skipPage('${pageContext.request.contextPath}',${vo.myPages})"/>&nbsp;&nbsp;
+						   onclick="skipPage('${pageContext.request.contextPath}',${pageVO.myPages})"/>&nbsp;&nbsp;
 					<input class="btn btn-success" type="button" id="next" value="下一页"
-						   onclick="nextPage('${pageContext.request.contextPath}',${vo.myPages})"/>&nbsp;&nbsp;
+						   onclick="nextPage('${pageContext.request.contextPath}',${pageVO.myPages})"/>&nbsp;&nbsp;
 					<input class="btn btn-success" type="button" value="末页"
-						   onclick="lastPage('${pageContext.request.contextPath}',${vo.myPages})"/>&nbsp;&nbsp;
+						   onclick="lastPage('${pageContext.request.contextPath}',${pageVO.myPages})"/>&nbsp;&nbsp;
 				</td>
 			</tr>
 		</table>
