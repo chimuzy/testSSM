@@ -20,7 +20,6 @@ public class ItemsController {
     public String findAll(String query, Model model){
         List<Items> itemsList = service.findAll(query);
         model.addAttribute("itemsList",itemsList);
-        System.out.println("items/itemsList.jsp");
         return "itemsList.jsp";
     }
 }
