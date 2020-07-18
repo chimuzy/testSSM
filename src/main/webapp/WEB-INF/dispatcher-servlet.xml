@@ -35,6 +35,15 @@
         <!-- 设置上传文件的最大尺寸为5MB -->
         <property name="maxUploadSize" value="5242880"></property>
     </bean>
-    <!-- 6. -->
-    <!-- 7. -->
+
+    <!-- 6.全局异常处理器 -->
+    <bean class="com.igeek.ssm.exception.MyHandlerExceptionResolver"></bean>
+
+    <!-- 7.拦截器：权限管理、登录校验 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.igeek.ssm.interceptor.LoginHandlerInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
