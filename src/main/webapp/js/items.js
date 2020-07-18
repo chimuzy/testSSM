@@ -32,7 +32,6 @@ function lastPage(url,myPages){
     window.location.href=url+"/items/findAll.action?query="+query+"&pageNow="+pageNow;
 }
 
-
 //上一页
 function prePage(url,myPages) {
     //获得搜索框的值
@@ -54,7 +53,6 @@ function prePage(url,myPages) {
     //跳转
     window.location.href=url+"/items/findAll.action?query="+query+"&pageNow="+pageNow;
 }
-
 
 //下一页
 function nextPage(url,myPages) {
@@ -78,7 +76,6 @@ function nextPage(url,myPages) {
     window.location.href=url+"/items/findAll.action?query="+query+"&pageNow="+pageNow;
 }
 
-
 //跳转
 function skipPage(url,myPages) {
     //获得搜索框的值
@@ -92,4 +89,16 @@ function skipPage(url,myPages) {
         //跳转
         window.location.href=url+"/items/findAll.action?query="+query+"&pageNow="+pageNow;
     }
+}
+
+function deleteAll() {
+    var str="";
+    $(".single").each(function () {
+        if($(this).prop("checked")){
+            var test=$(this).parents(".data").find(".id").text();
+            str=str+"id="+text+"&";
+        }
+    });
+    str=str.substr(0,str.length-1);
+    window.location.href="${pageContext.request.contextPath}/items/delete.action?"+str;
 }

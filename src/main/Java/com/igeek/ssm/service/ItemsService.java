@@ -36,6 +36,18 @@ public class ItemsService {
         return pageVO;
     }
     public void add(Items items){
-        mapper.insert(items);
+        mapper.insertSelective(items);
+    }
+    public Items findOne(Integer id){
+        Items items = mapper.selectByPrimaryKey(id);
+        return items;
+    }
+    public void update(Items items){
+        mapper.updateByPrimaryKeySelective(items);
+    }
+    public void delete(Integer[] ids){
+        for (Integer id:ids) {
+            mapper.deleteByPrimaryKey(id);
+        }
     }
 }
